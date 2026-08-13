@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    color: #5D6063;
+    background-color: #EAEDF0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    line-height: 1.3;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    padding: 10px 50px;
+    height: 70px;
+    width: 100%;
+    color: white;
+
+    border-bottom: 1px solid #D6D9DC;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.home-button {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.home-button img {
+    height: 80%;
+}
+
+.right-links,
+.left-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    height: 100%;
+}
+
+.left-links {
+    flex: 1 0 auto;
+}
+
+nav button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button {
+    background-color: #e74c3c;
+}
+  
+.logout-button:hover {
+    background-color: #c0392b;
+}
+ 
+.logout-button:active {
+    background-color: #a93226;
+}
+  
+.product-form-header {
+    text-align: center;
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+
+    width: 80%;
+    margin: 40px 0;
+    padding: 50px;
+}
+
+.product-form-header h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.product-form-header p {
+    font-size: 18px;
+}
+
+.product-form-header > p + p {
+    margin-top: 2px;
+}
+
+.product-form {
+    background-color: #F6F7F8;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    
+    width: 80%;
+    padding: 50px;
+    margin: 0 0 40px 0;
+}
+
+.form-row {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.form-row input[type='text'],
+.form-row input[type='file'],
+.form-row input[type='number'] {
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+}
+
+.form-row input[type='file'] {
+    background-color: #F6F7F8;
+    border: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+}
+
+.form-row label {
+    margin-bottom: 15px;
+}
+
+.asterisk {
+    color: red;
+}
+
+.form-row button {
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: #5995DA;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: 10px 40px;
+  cursor: pointer;
+}
+
+.form-row button:hover {
+  background-color: #76AEED;
+}
+
+.form-row button:active {
+  background-color: #407FC7;
+}
+
+/* .form-row input[type='text']:invalid,
+.form-row input[type='email']:invalid {
+  border: 1px solid #D55C5F;
+  color: #D55C5F;
+  box-shadow: none;
+} */
+
+.form-row textarea {
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+  
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+  
+    min-height: 200px;
+    margin-bottom: 10px;
+    padding: 7px;
+    resize: none;
+}
+  
+.form-row .instructions {
+    color: #999999;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.form-row button {
+    font-size: 16px;
+    font-weight: bold;
+  
+    color: #FFFFFF;
+    background-color: #5995DA;
+  
+    border: none;
+    border-radius: 3px;
+  
+    padding: 10px 40px;
+    cursor: pointer;
+}
+  
+.form-row button:hover {
+    background-color: #76AEED;
+}
+  
+.form-row button:active {
+    background-color: #407FC7;
+}
+
+.upload {
+    align-items: center;
+}
+
+@media only screen and (min-width: 1300px) {
+    .speaker-form-header,
+    .speaker-form {
+      width: 600px;
+    }
+    
+    .form-row {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .form-row input[type='text'],
+    .form-row input[type='number'],
+    .form-row input[type='file'],
+    .form-row select {
+        width: max(150px, 30%);
+        height: initial;
+    }
+    
+    
+    .form-row textarea {
+      width: max(750px, 50%);
+      height: initial;
+    }
+
+    .form-row label {
+      text-align: right;
+      width: 150px;
+      margin-top: 7px;
+      padding-right: 20px;
+    }
+
+    .form-row .instructions {
+        margin-left: 120px;
+    }
+
+    .form-row button {
+        margin-left: 150px;
+    }
+}
