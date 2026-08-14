@@ -1,388 +1,232 @@
-AmazifyAI
+# AmazifyAI
 
-AI-Assisted Product Authenticity Verification Platform
+A web-based platform for helping sellers verify product authenticity before listing items online.
 
-AmazifyAI is a web-based product verification platform designed to help sellers submit product information and images for authenticity assessment before listing. The system combines a seller-facing workflow with product verification, status tracking, and a MySQL-backed application.
+<p align="center">
+  <img src="https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php" alt="PHP 8.2" />
+  <img src="https://img.shields.io/badge/MySQL-MariaDB-4479A1?style=for-the-badge&logo=mysql" alt="MySQL / MariaDB" />
+  <img src="https://img.shields.io/badge/Stack-PHP%20%2B%20MySQL-000000?style=for-the-badge" alt="PHP + MySQL" />
+</p>
 
-Project status: The current repository contains the web application and database workflow. The authenticity/ML component is documented only to the extent supported by the current implementation; model architecture, training data, and evaluation metrics will be added as the ML pipeline is integrated and verified.
+AmazifyAI is built to streamline the product verification workflow for sellers. Sellers can sign up, log in, submit product details and images, and track verification outcomes such as Verified, Rejected, or Pending. The project combines a PHP + MySQL backend with a simple frontend interface to create a complete product authenticity review flow.
 
-Overview
+## Overview
 
-Counterfeit products can reduce customer trust and create significant risks for online marketplaces. AmazifyAI explores an automated verification workflow in which sellers provide product details and images, after which the system can assign a verification outcome such as:
+Counterfeit and low-quality products can damage trust in digital marketplaces. AmazifyAI explores an automated verification workflow where sellers submit product information and product images, and the system evaluates whether the listing is authentic or requires review.
 
-Verified
+The current implementation focuses on the seller workflow, product submission, status tracking, and database-backed storage. The AI/ML verification layer is planned as part of future integration work.
 
-Rejected
+## Features
 
-Pending
+- Seller authentication with sign-up and login flow
+- Product submission form with title, price, description, and image upload handling
+- Product status tracking for each submission
+- Verification result states: Verified, Rejected, and Pending
+- MySQL database integration using PHP mysqli
+- Simple web-based user interface for local deployment
 
-The goal is to make product screening more structured and provide sellers with a clear view of their submissions.
+## Workflow
 
-Key Features
-
-🔐 Seller Authentication
-
-Seller sign-up workflow
-
-Seller login workflow
-
-PHP/MySQL-based authentication
-
-📦 Product Submission
-
-Product listing form
-
-Product details submission
-
-Product image upload workflow
-
-🔎 Product Verification
-
-Designed for image-based authenticity assessment
-
-Supports an authenticity/verification score workflow
-
-Verification result can be represented as verified, rejected, or pending
-
-📊 Seller Status Tracking
-
-Seller-specific product status
-
-Visibility into submitted products
-
-Clear verification outcomes
-
-🗄️ Database Integration
-
-MySQL/MariaDB database
-
-SQL schema included in the repository
-
-PHP backend connected through mysqli
-
-Application Flow
-
+```text
 Seller
-  │
-  ├── Sign Up / Login
-  │
-  ▼
-Product Submission
-  │
-  ├── Product details
-  └── Product images
-  │
-  ▼
-Authenticity / Verification Layer
-  │
-  ▼
+  ↓
+Sign Up / Login
+  ↓
+Submit Product Details
+  ↓
+Upload Product Images
+  ↓
+Authenticity Verification Layer
+  ↓
 Verification Result
-  │
   ├── Verified
   ├── Rejected
   └── Pending
-  │
-  ▼
-Seller Dashboard / Status View
+  ↓
+Seller Dashboard / Product Status View
+```
 
-Tech Stack
+## Tech Stack
 
-Layer
+| Layer | Technology |
+| --- | --- |
+| Frontend | HTML, CSS, JavaScript |
+| Backend | PHP |
+| Database | MySQL / MariaDB |
+| Local Server | XAMPP / Apache |
+| Database Management | phpMyAdmin |
+| AI / ML | Image-based authenticity verification (integration in progress) |
 
-Technology
+## Project Structure
 
-Frontend
-
-HTML, CSS, JavaScript
-
-Backend
-
-PHP
-
-Database
-
-MySQL / MariaDB
-
-Local Server
-
-XAMPP / Apache
-
-Database Management
-
-phpMyAdmin
-
-ML / AI
-
-Image-processing based authenticity verification (integration in progress)
-
-Project Structure
-
+```text
 AmazifyAI/
-│
 ├── add-product-page/
 │   └── Product submission interface
-│
 ├── images/
-│   └── Application assets
-│
+│   └── Static application assets
 ├── sign-up/
 │   └── Seller registration interface
-│
 ├── .vscode/
-│   └── VS Code project configuration
-│
+│   └── VS Code configuration
 ├── Amazify.sql
-│   └── Database schema and initial database setup
-│
+│   └── Database schema and seed data
 ├── config.php
-│   └── MySQL database connection
-│
+│   └── Database connection configuration
 ├── index.html
-│   └── Application entry page
-│
+│   └── Main app entry page
 ├── login.php
-│   └── Seller login handling
-│
+│   └── Seller login logic
 ├── login-main.js
-│   └── Login-side JavaScript
-│
+│   └── Frontend login behavior
 ├── login-styles.css
 │   └── Login page styling
-│
-└── README.md
-    └── Project documentation
+├── README.md
+│   └── Project documentation
+└── .git/
+    └── Repository metadata
+```
 
-Prerequisites
+## Prerequisites
 
-Before running AmazifyAI locally, install:
+Before running the project locally, make sure you have:
 
-XAMPP
+- XAMPP installed
+- A browser such as Chrome or Edge
+- VS Code (recommended)
+- Git (optional, if cloning the repo)
 
-A web browser
+This project uses PHP and MySQL/MariaDB, so it should be run through a local Apache server instead of opening files directly in a browser.
 
-VS Code (recommended)
+## Getting Started
 
-Git (if cloning the repository)
+### 1. Clone the repository
 
-The project currently uses PHP and MySQL/MariaDB, so it should be served through Apache rather than opened directly from the filesystem.
-
-Installation & Local Setup
-
-1. Clone the repository
-
+```bash
 git clone https://github.com/tanisharattan/AmazifyAI.git
 cd AmazifyAI
+```
 
-2. Move the project into XAMPP
+### 2. Place the project in your local web server
 
-On Windows, copy the project into:
+For Windows with XAMPP, place the project in:
 
+```text
 C:\xampp\htdocs\AmazifyAI
+```
 
-The final structure should look like:
-
-C:\xampp\htdocs\AmazifyAI\
-
-3. Start Apache
+### 3. Start Apache and MySQL
 
 Open the XAMPP Control Panel and start:
 
-Apache
+- Apache
+- MySQL
 
-4. Configure MySQL/MariaDB
-
-AmazifyAI uses MySQL/MariaDB for storing application data.
-
-If another MySQL installation is already using port 3306, XAMPP MariaDB can be configured to use another available port (for example 3307).
-
-Make sure the database connection settings in config.php match the XAMPP database configuration.
-
-5. Create the database
+### 4. Import the database
 
 Open:
 
+```text
 http://localhost/phpmyadmin/
+```
 
-Import the SQL file:
+Then import:
 
+```text
 Amazify.sql
+```
 
-This creates the database structure required by the application.
+This creates the required `users` and `products` tables for the app.
 
-If the database name or table names are changed while evolving the project into AmazifyAI, update both the SQL file and config.php consistently.
+### 5. Configure the database connection
 
-6. Configure config.php
+Update the connection settings in `config.php` to match your local MySQL configuration.
 
-The application uses PHP's mysqli connection.
+Example:
 
-Example structure:
-
+```php
 <?php
-
 $conn = mysqli_connect("localhost", "root", "", "Amazify");
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 ?>
+```
 
-If your XAMPP MariaDB is running on port 3307, the connection should include the port:
+If your MySQL is configured on a custom port (for example `3307`), use:
 
+```php
+<?php
 $conn = mysqli_connect("localhost", "root", "", "Amazify", 3307);
+?>
+```
 
-Use the actual database name and credentials configured on your machine.
+### 6. Run the application
 
-7. Run the application
+Open the browser and visit:
 
-Open:
-
+```text
 http://localhost/AmazifyAI/
+```
 
-Database
+## Database
 
-The repository contains:
+The project currently uses a MySQL/MariaDB database defined by `Amazify.sql`.
 
-Amazify.sql
+### Included tables
 
-This file is the starting point for the application's database setup.
+- `users` — stores seller account information
+- `products` — stores product submissions and verification-related fields
 
-The database layer is currently implemented using PHP mysqli and a MySQL/MariaDB server.
+The database connection is handled using PHP's `mysqli` extension.
 
-ML / AI Component
+## Current Status
 
-AmazifyAI is intended to use image-based product analysis as part of the authenticity verification workflow.
+This repository contains the working web application and database layer. The AI-assisted authenticity verification component is currently planned and not yet fully integrated into the codebase.
 
-The planned pipeline is:
+## License
 
-Product Images
-      │
-      ▼
-Image Preprocessing
-      │
-      ▼
-Feature Extraction / ML Model
-      │
-      ▼
-Authenticity Score
-      │
-      ▼
-Verification Decision
+This project is currently distributed without a formal license file. Please check with the repository owner before using or distributing the code in production environments.
 
-Important
+## Contact
 
-The current repository documentation should not claim a specific:
+For questions or collaboration opportunities, reach out through the repository owner or project maintainer.
 
-model architecture
+## Roadmap
 
-dataset size
+### Phase 1: Web application foundation
+- Complete seller registration and login flow
+- Improve product submission and image upload handling
+- Finalize database schema and validation rules
 
-accuracy
+### Phase 2: Verification pipeline
+- Integrate AI or image-analysis-based authenticity checks
+- Define verification score and decision thresholds
+- Connect model output to product status updates
 
-F1-score
+### Phase 3: Product experience improvements
+- Improve seller dashboard usability
+- Add verification history and review logs
+- Strengthen error handling and validation
 
-precision/recall
+### Phase 4: Production readiness
+- Add secure session and authentication hardening
+- Validate uploads and protect against common web vulnerabilities
+- Prepare deployment configuration for a production environment
 
-confidence threshold
-
-until those values are verified from the actual ML implementation and experiments.
-
-These details can be added once the ML pipeline is integrated and evaluated.
-
-Current Development Roadmap
-
-Phase 1 — Web Application
-
-Seller registration interface
-
-Seller login workflow
-
-Product submission interface
-
-Image submission workflow
-
-MySQL/MariaDB integration
-
-Local XAMPP setup
-
-Phase 2 — Verification Pipeline
-
-Connect the image-processing/ML model
-
-Define authenticity score generation
-
-Define verification threshold
-
-Connect model output to product status
-
-Add model inference endpoint/workflow
-
-Phase 3 — Evaluation
-
-Prepare/validate dataset
-
-Train or integrate the selected model
-
-Evaluate accuracy
-
-Evaluate precision, recall and F1-score
-
-Analyze false positives and false negatives
-
-Phase 4 — Product Improvements
-
-Improve seller dashboard
-
-Add verification history
-
-Add admin controls
-
-Improve image upload validation
-
-Add better error handling
-
-Improve UI/UX
-
-Add deployment configuration
-
-Security Considerations
+## Security Notes
 
 Before production deployment, the application should be hardened with:
 
-Password hashing instead of storing plain-text passwords
+- Password hashing for user credentials
+- Prepared SQL statements to prevent injection attacks
+- Server-side validation for all form inputs
+- Image upload restrictions for file type and size
+- Proper session management and CSRF protection
+- Environment-based configuration for database credentials
 
-Prepared SQL statements
-
-Server-side input validation
-
-File type and file size validation for uploaded images
-
-Secure session handling
-
-CSRF protection where appropriate
-
-Environment-based database credentials
-
-Removal of development credentials from source control
-
-Never commit database passwords, API keys, model credentials, or other secrets to GitHub.
-
-Future Scope
-
-AmazifyAI can be extended into a more complete marketplace trust layer by adding:
-
-Multi-image product analysis
-
-Computer vision-based counterfeit detection
-
-Seller risk scoring
-
-Product verification history
-
-Explainable verification results
-
-Automated admin review queues
-
-Model monitoring and retraining
+Never commit database passwords, API keys, or other secrets to GitHub.
 
 Confidence-based manual review
 
